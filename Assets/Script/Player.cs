@@ -7,16 +7,25 @@ public class Player : MonoBehaviour {
     [Range(0, 10)]
     public float MoveSpeed;
 
+    [Range(0,1000)]
+    public float flap;
+
+    Rigidbody2D rigidbody;
+
+    bool Jump = false;
+
     // Use this for initialization
     void Start () {
-		
+
+        rigidbody = GetComponent<Rigidbody2D>();
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 
-        bool Jump = false;
+        
 
 
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -30,8 +39,11 @@ public class Player : MonoBehaviour {
 
         if (Input.GetKey(KeyCode.Z) && !Jump)
         {
+            rigidbody.AddForce(Vector2.up * flap);
 
+            Jump = true;    
         }
+
 
         //Vector2 add_Move = Vector2.zero;
 
@@ -44,5 +56,12 @@ public class Player : MonoBehaviour {
         //    add_Move.x = MoveSpeed;
         //}
 
+    }
+    void OnCollisionEner2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Jump = true;
+        }
     }
 }
