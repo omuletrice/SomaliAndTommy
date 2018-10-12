@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 
     Rigidbody2D rigidbody;
 
-    bool Jump = false;
+    bool Jump = false;  
 
     // Use this for initialization
     void Start () {
@@ -61,7 +61,7 @@ public class Player : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Jump = true;
+            Jump = false;
         }
     }
 }
