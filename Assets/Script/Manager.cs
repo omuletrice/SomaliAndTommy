@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Manager : MonoBehaviour {
-
-    public GameObject Player;
-
-    public TextEditor Text;
-
+    
 
 	// Use this for initialization
 	void Start () {
-        
+
 	}
 	
 	// Update is called once per frame
@@ -19,10 +15,11 @@ public class Manager : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D hit)
     {
-        if (null != other.GetComponent())        {
-
+        if(hit.CompareTag("Player"))
+        {
+            Debug.Log("ゲームクリア");
         }
     }
 }
