@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rd2d;
     bool Jump = false;
 
+
+
     // Use this for initialization
     void Start()
     {
@@ -24,20 +26,20 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-MoveSpeed, 0, 0);
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            transform.Translate(MoveSpeed, 0, 0);
+            transform.Translate(-MoveSpeed *Time.deltaTime, 0.0f, 0.0f);
         }
 
-         if (Input.GetKeyDown(KeyCode.Z) && ! Jump)
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(MoveSpeed *Time.deltaTime, 0.0f, 0.0f);
+        }
+
+         if (Input.GetKeyDown(KeyCode.Space) && ! Jump)
         {
             rd2d.AddForce(Vector2.up * flap);
             Jump = true;
-            Debug.Log("true");
         }
 
 
@@ -52,13 +54,13 @@ public class Player : MonoBehaviour
         //    add_Move.x = MoveSpeed;
         //}
 
+
     }
     void OnCollisionEnter2D(Collision2D on)
     {
         if (on.gameObject.CompareTag("Ground"))
         {
             Jump = false;
-            Debug.Log("着地してるよ");
         }
     }
 }

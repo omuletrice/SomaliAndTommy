@@ -491,5 +491,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90082f4f2d27ba948a337b80980ec1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 1.2
+  MoveSpeed: 5.04
   flap: 227
