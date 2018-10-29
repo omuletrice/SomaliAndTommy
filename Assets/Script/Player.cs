@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rd2d;
     bool Jump = false;
 
+    public float MaxRange;
+    private Mouse Cursor;
 
 
     // Use this for initialization
@@ -20,6 +22,7 @@ public class Player : MonoBehaviour
 
         rd2d = GetComponent<Rigidbody2D>();
 
+        Cursor = GameObject.Find("Cursor").GetComponent<Mouse>();
     }
 
     // Update is called once per frame
@@ -36,23 +39,14 @@ public class Player : MonoBehaviour
             transform.Translate(MoveSpeed *Time.deltaTime, 0.0f, 0.0f);
         }
 
-         if (Input.GetKeyDown(KeyCode.Space) && ! Jump)
+         if (Input.GetKeyDown(KeyCode.Space) && ! Jump) 
         {
             rd2d.AddForce(Vector2.up * flap);
             Jump = true;
         }
 
 
-        //Vector2 add_Move = Vector2.zero;
-
-        //if (Input.GetKey(KeyCode.LeftArrow))
-        //{ 
-        //    add_Move.x = -MoveSpeed;
-        //}
-        //else if (Input.GetKey(KeyCode.RightArrow))
-        //{
-        //    add_Move.x = MoveSpeed;
-        //}
+        //Cursor.transform.position
 
 
     }
