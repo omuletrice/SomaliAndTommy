@@ -13,14 +13,18 @@ public class Mouse : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        Vector3 CursorPos = Input.mousePosition;
-
-        Vector3 dift = CursorPos - player.gameObject.transform.position;
+        Vector2 CursorPos = Input.mousePosition;
+        Vector2 playerPos = RectTransformUtility.WorldToScreenPoint(Camera.main, player.gameObject.transform.position);
+        Vector2 dift = CursorPos - playerPos;
         if (dift.magnitude > player.MaxRange)
         {
-            CursorPos = player.gameObject.transform.position + dift.normalized * player.MaxRange;
+            CursorPos = playerPos + dift.normalized * player.MaxRange;
         }
+
+        //if()
+        //{
+
+        //}
 
         this.transform.position = CursorPos;
     }
