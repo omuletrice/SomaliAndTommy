@@ -12,9 +12,9 @@ public class Player : MonoBehaviour
     Rigidbody2D rd2d;
     bool Jump = false;
 
+    [Range(0,200)]
     public float MaxRange;
     private Mouse Cursor;
-
 
     // Use this for initialization
     void Start()
@@ -47,8 +47,7 @@ public class Player : MonoBehaviour
 
 
         //Cursor.transform.position
-
-
+        
     }
     void OnCollisionEnter2D(Collision2D on)
     {

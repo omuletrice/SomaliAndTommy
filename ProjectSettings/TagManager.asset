@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Goal
+  - Wall
+  - Anker
+  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -17,9 +20,9 @@ TagManager:
   - 
   - Cursor
   - Anker
-  - 
-  - 
-  - 
+  - Player
+  - Ground
+  - Wall
   - 
   - 
   - 
